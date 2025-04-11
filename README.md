@@ -40,13 +40,28 @@
 | GitHub     | Хостинг и контроль версий |
 
 ## 📂 Структура проекта
+
 child-rights-website/
-├── index.html # Главная страница
-├── rights.html # Права ребенка
-├── duties.html # Обязанности
-├── responsibility.html # Ответственность
-├── resources.html # Ресурсы
+│
+├── index.html                 # Главная страница
+├── rights.html                # Раздел о правах ребенка
+├── duties.html                # Раздел об обязанностях
+├── responsibility.html        # Раздел об ответственности
+├── resources.html             # Полезные ресурсы
+│
 ├── css/
-│ └── style.css # Основные стили
-├── images/ # Изображения
-└── README.md # Документация
+│   └── style.css              # Основные стили сайта
+│
+├── images/                    # Папка с изображениями
+│   ├── banner.jpg             # Баннер главной страницы
+│   ├── school-logo.png        # Логотип школы
+│   ├── rights/                # Изображения для раздела прав
+│   │   ├── education.jpg
+│   │   └── health.jpg
+│   └── duties/                # Изображения для раздела обязанностей
+│       └── school.jpg
+│
+├── js/                        # Папка для скриптов (если потребуется)
+│   └── script.js
+│
+└── README.md                  # Документация проекта
