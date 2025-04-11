@@ -3,13 +3,43 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Права и обязанности ребенка</title>
+    <title>Права и обязанности ребенка в России</title>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('images/children-banner.jpg');
+            background-size: cover;
+            color: white;
+            text-align: center;
+            padding: 100px 20px;
+        }
+        .stat-card {
+            background: white;
+            border-radius: 10px;
+            padding: 25px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        .stat-card:hover {
+            transform: translateY(-10px);
+        }
+        .quick-links {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+        }
+        .quiz-container {
+            background: #f0f7ff;
+            border-radius: 10px;
+            padding: 30px;
+        }
+    </style>
 </head>
 <body>
     <header>
         <div class="container">
-            <h1>Права и обязанности ребенка</h1>
+            <h1><i class="fas fa-balance-scale"></i> Права и обязанности ребенка</h1>
             <nav>
                 <ul>
                     <li><a href="index.html" class="active">Главная</a></li>
@@ -22,62 +52,134 @@
         </div>
     </header>
 
-    <main class="container">
-        <section class="banner">
-            <img src="images/banner.jpg" alt="Дети изучают права">
-            <div class="banner-text">
-                <p>"Ребенок имеет право на защиту, образование и счастливое детство"</p>
-                <small>Конвенция о правах ребенка, ст. 3</small>
+    <main>
+        <!-- Герой-баннер -->
+        <section class="hero">
+            <div class="container">
+                <h2>Знание — защита вашего ребенка</h2>
+                <p>Каждый ребенок в России имеет права, защищенные Конституцией и международными законами. Но у детей есть и обязанности, о которых важно знать.</p>
+                <a href="rights.html" class="cta-button">Изучить права →</a>
             </div>
         </section>
 
-        <section class="intro">
-            <h2>Почему это важно знать?</h2>
-            <div class="cards">
-                <div class="card">
-                    <img src="images/icon-shield.png" alt="Защита">
-                    <h3>Защита</h3>
-                    <p>Знание прав помогает противостоять насилию и дискриминации.</p>
-                </div>
-                <div class="card">
-                    <img src="images/icon-law.png" alt="Закон">
-                    <h3>Безопасность</h3>
-                    <p>Понимание обязанностей предотвращает проблемы с законом.</p>
-                </div>
-                <div class="card">
-                    <img src="images/icon-family.png" alt="Семья">
-                    <h3>Семья</h3>
-                    <p>Родители несут ответственность за детей младше 14 лет.</p>
-                </div>
-            </div>
-            <a href="rights.html" class="button">Начать изучение →</a>
-        </section>
-        <section class="stats">
-            <h2>Цифры говорят сами за себя</h2>
-            <div class="stat-cards">
+        <!-- Статистика -->
+        <section class="container stats-section">
+            <h2><i class="fas fa-chart-bar"></i> Почему это важно?</h2>
+            <div class="quick-stats">
                 <div class="stat-card">
-                    <span class="number">42%</span>
-                    <p>детей сталкивались с нарушением своих прав в школе</p>
+                    <div class="stat-icon"><i class="fas fa-exclamation-triangle"></i></div>
+                    <div class="stat-number">68%</div>
+                    <div class="stat-desc">детей не знают, куда обращаться при нарушении их прав</div>
                 </div>
                 <div class="stat-card">
-                    <span class="number">67%</span>
-                    <p>подростков не знают, как реагировать на дискриминацию</p>
+                    <div class="stat-icon"><i class="fas fa-gavel"></i></div>
+                    <div class="stat-number">42%</div>
+                    <div class="stat-desc">родителей несут ответственность за действия своих детей</div>
                 </div>
             </div>
         </section>
-        <section class="video">
-            <h2>Что такое права ребенка?</h2>
-            <div class="video-wrapper">
-                <!-- Вставить видео с YouTube или загрузить своё -->
-                <iframe src="https://www.youtube.com/embed/пример" frameborder="0" allowfullscreen></iframe>
+
+        <!-- Быстрые ссылки -->
+        <section class="container quick-actions">
+            <h2><i class="fas fa-compass"></i> Быстрый доступ</h2>
+            <div class="quick-links">
+                <a href="rights.html#education" class="quick-link-card">
+                    <i class="fas fa-school"></i>
+                    <h3>Право на образование</h3>
+                    <p>Что делать, если требуют плату за учебники?</p>
+                </a>
+                <a href="responsibility.html#14-18" class="quick-link-card">
+                    <i class="fas fa-user-shield"></i>
+                    <h3>Ответственность 14-18 лет</h3>
+                    <p>Какие наказания возможны?</p>
+                </a>
+                <a href="resources.html#emergency" class="quick-link-card">
+                    <i class="fas fa-phone-alt"></i>
+                    <h3>Экстренная помощь</h3>
+                    <p>Телефоны доверия и контакты</p>
+                </a>
+            </div>
+        </section>
+
+        <!-- Интерактивный тест -->
+        <section class="container quiz-section">
+            <h2><i class="fas fa-question-circle"></i> Проверьте свои знания</h2>
+            <div class="quiz-container">
+                <div class="quiz-question">
+                    <p>1. Кто несет ответственность, если 13-летний подросток разбил окно в школе?</p>
+                    <input type="radio" id="q1-a1" name="q1">
+                    <label for="q1-a1">Только ребенок</label><br>
+                    <input type="radio" id="q1-a2" name="q1">
+                    <label for="q1-a2">Родители</label><br>
+                    <input type="radio" id="q1-a3" name="q1">
+                    <label for="q1-a3">Школа</label>
+                </div>
+                <button class="quiz-button" onclick="checkAnswer()">Проверить</button>
+                <p id="quiz-result" style="display:none;"></p>
+            </div>
+        </section>
+
+        <!-- Новости и обновления -->
+        <section class="container news-section">
+            <h2><i class="far fa-newspaper"></i> Последние изменения в законах</h2>
+            <div class="news-card">
+                <div class="news-date">15.03.2024</div>
+                <h3>Изменения в Семейном кодексе</h3>
+                <p>С 2024 года усилена защита прав детей при разводе родителей. <a href="#">Подробнее →</a></p>
             </div>
         </section>
     </main>
 
     <footer>
         <div class="container">
-            <p>© 2024 Проект по информатике. Школа №XX, 10 класс</p>
+            <div class="footer-content">
+                <div class="footer-about">
+                    <h3>О проекте</h3>
+                    <p>Сайт создан для информирования детей и родителей о правах и обязанностях согласно российскому законодательству.</p>
+                </div>
+                <div class="footer-links">
+                    <h3>Полезные ссылки</h3>
+                    <ul>
+                        <li><a href="http://deti.gov.ru/" target="_blank">Уполномоченный по правам ребенка</a></li>
+                        <li><a href="http://www.consultant.ru/document/cons_doc_LAW_9959/" target="_blank">Конвенция о правах ребенка</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2024 Проект по информатике. Школа №XX, 10 класс</p>
+            </div>
         </div>
     </footer>
+
+    <script>
+        // Проверка ответа в тесте
+        function checkAnswer() {
+            const correctAnswer = document.getElementById("q1-a2");
+            const resultElement = document.getElementById("quiz-result");
+            
+            if (correctAnswer.checked) {
+                resultElement.textContent = "Верно! По ст. 1073 ГК РФ за детей до 14 лет отвечают родители.";
+                resultElement.style.color = "#4CAF50";
+            } else {
+                resultElement.textContent = "Неверно. Правильный ответ: родители.";
+                resultElement.style.color = "#F44336";
+            }
+            resultElement.style.display = "block";
+        }
+
+        // Анимация при прокрутке
+        window.addEventListener('scroll', function() {
+            const statCards = document.querySelectorAll('.stat-card');
+            statCards.forEach(card => {
+                const cardPosition = card.getBoundingClientRect().top;
+                const screenPosition = window.innerHeight / 1.3;
+                
+                if (cardPosition < screenPosition) {
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0)';
+                }
+            });
+        });
+    </script>
 </body>
 </html>
