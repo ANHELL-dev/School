@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Полезные ресурсы</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Полезные ресурсы</h1>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Главная</a></li>
+                    <li><a href="rights.html">Права</a></li>
+                    <li><a href="duties.html">Обязанности</a></li>
+                    <li><a href="responsibility.html">Ответственность</a></li>
+                    <li><a href="resources.html" class="active">Ресурсы</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="emergency-contacts">
+            <h2>Экстренная помощь</h2>
+            <div class="contacts-grid">
+                <div class="contact-card">
+                    <h3><i class="fas fa-phone-alt"></i> Телефон доверия</h3>
+                    <p>8-800-2000-122</p>
+                    <p>Круглосуточно, бесплатно</p>
+                </div>
+
+                <div class="contact-card">
+                    <h3><i class="fas fa-balance-scale"></i> Уполномоченный по правам ребенка</h3>
+                    <p><a href="http://deti.gov.ru/" target="_blank">deti.gov.ru</a></p>
+                </div>
+            </div>
+        </section>
+
+        <section class="laws">
+            <h2>Официальные документы</h2>
+            <ul class="laws-list">
+                <li><a href="http://www.consultant.ru/document/cons_doc_LAW_9959/" target="_blank">Конвенция о правах ребенка</a></li>
+                <li><a href="http://www.consultant.ru/document/cons_doc_LAW_28399/" target="_blank">Семейный кодекс РФ</a></li>
+            </ul>
+        </section>
+
+        <section class="quiz">
+            <h2>Проверь свои знания</h2>
+            <form id="rights-quiz">
+                <div class="quiz-question">
+                    <p>1. С какого возраста наступает уголовная ответственность?</p>
+                    <input type="radio" id="q1-a1" name="q1" value="14">
+                    <label for="q1-a1">14 лет</label><br>
+                    <input type="radio" id="q1-a2" name="q1" value="16">
+                    <label for="q1-a2">16 лет</label>
+                </div>
+                <button type="button" class="button" onclick="checkQuiz()">Проверить</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>© 2024 Проект по информатике | Школа №XX, 10 класс</p>
+        </div>
+    </footer>
+
+    <script>
+        function checkQuiz() {
+            const answer = document.querySelector('input[name="q1"]:checked').value;
+            if (answer === "14") {
+                alert("Верно! За тяжкие преступления с 14 лет (ст. 20 УК РФ)");
+            } else {
+                alert("Неверно! Правильный ответ: 14 лет");
+            }
+        }
+    </script>
+</body>
+</html>

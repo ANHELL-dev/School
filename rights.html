@@ -5,11 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Права ребенка</title>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
     <header>
         <div class="container">
-            <h1>Права ребенка</h1>
+            <h1><i class="fas fa-balance-scale"></i> Права ребенка</h1>
             <nav>
                 <ul>
                     <li><a href="index.html">Главная</a></li>
@@ -23,34 +24,70 @@
     </header>
 
     <main class="container">
-        <section class="rights-section">
-            <h2>Основные права ребенка в РФ</h2>
-            
+        <section class="rights-intro">
+            <h2>7 основных категорий прав</h2>
+            <p>Все права защищены Конвенцией ООН и законами РФ</p>
+        </section>
+
+        <div class="rights-grid">
+            <!-- Категория 1 -->
             <article class="right-card">
-                <img src="images/right-name.jpg" alt="Имя и гражданство">
-                <div>
-                    <h3>1. Право на имя и гражданство</h3>
-                    <p><strong>Закон:</strong> Ст. 7 Конвенции о правах ребенка, Ст. 58 Семейного кодекса РФ.</p>
-                    <p><strong>Пример:</strong> Новорожденный получает имя и свидетельство о рождении в течение 1 месяца.</p>
+                <div class="right-icon">
+                    <i class="fas fa-id-card"></i>
+                </div>
+                <h3>1. Личные права</h3>
+                <ul>
+                    <li>Право на имя и гражданство</li>
+                    <li>Защита от насилия</li>
+                    <li>Свобода мысли и религии</li>
+                </ul>
+                <button class="details-btn">Подробнее</button>
+                <div class="details-content">
+                    <p><strong>Пример нарушения:</strong> Родители не оформляют свидетельство о рождении → обращение в органы опеки.</p>
                 </div>
             </article>
 
+            <!-- Категория 2 -->
             <article class="right-card">
-                <img src="images/right-education.jpg" alt="Образование">
-                <div>
-                    <h3>2. Право на образование</h3>
-                    <p><strong>Закон:</strong> Ст. 43 Конституции РФ, Ст. 5 Закона "Об образовании".</p>
-                    <p><strong>Гарантии:</strong> Бесплатное школьное образование, доступ к кружкам и секциям.</p>
-                    <p class="case"><em>Реальный случай:</em> Школа требует плату за учебники? Это нарушение! Обращайтесь в Департамент образования.</p>
+                <div class="right-icon">
+                    <i class="fas fa-home"></i>
                 </div>
+                <h3>2. Семейные права</h3>
+                <ul>
+                    <li>Жить и воспитываться в семье</li>
+                    <li>Общаться с обоими родителями</li>
+                    <li>Выражать мнение при разводе</li>
+                </ul>
+                <button class="details-btn">Подробнее</button>
             </article>
+
+            <!-- Остальные категории... -->
+        </div>
+
+        <section class="real-cases">
+            <h2><i class="fas fa-gavel"></i> Реальные случаи защиты прав</h2>
+            <div class="case-card">
+                <h3>Дело о школьной дискриминации</h3>
+                <p>14-летняя Маша из Красноярска добилась отмены незаконных требований носить только юбки через уполномоченного по правам ребенка.</p>
+                <a href="#" class="case-link">Читать полностью →</a>
+            </div>
         </section>
     </main>
 
     <footer>
         <div class="container">
-            <p>© 2024 Проект по информатике. Школа №XX, 10 класс</p>
+            <p>© 2024 Проект по информатике | Школа №XX, 10 класс</p>
         </div>
     </footer>
+
+    <script>
+        // Раскрытие деталей
+        document.querySelectorAll('.details-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const content = btn.nextElementSibling;
+                content.style.display = content.style.display === 'block' ? 'none' : 'block';
+            });
+        });
+    </script>
 </body>
 </html>

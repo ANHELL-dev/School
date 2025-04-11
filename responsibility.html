@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ответственность</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .tab { overflow: hidden; border: 1px solid #ccc; background: #f1f1f1; }
+        .tab button { float: left; border: none; outline: none; cursor: pointer; padding: 14px 16px; }
+        .tab button:hover { background: #ddd; }
+        .tab button.active { background: #4CAF50; color: white; }
+        .tabcontent { display: none; padding: 20px; border: 1px solid #ccc; border-top: none; }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Ответственность</h1>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Главная</a></li>
+                    <li><a href="rights.html">Права</a></li>
+                    <li><a href="duties.html">Обязанности</a></li>
+                    <li><a href="responsibility.html" class="active">Ответственность</a></li>
+                    <li><a href="resources.html">Ресурсы</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="responsibility-intro">
+            <h2>Кто отвечает за нарушения?</h2>
+            <p>Зависит от возраста и тяжести проступка</p>
+        </section>
+
+        <div class="tab">
+            <button class="tablinks" onclick="openAge(event, 'under14')">До 14 лет</button>
+            <button class="tablinks" onclick="openAge(event, '14-18')">14-18 лет</button>
+            <button class="tablinks" onclick="openAge(event, 'adult')">Совершеннолетние</button>
+        </div>
+
+        <div id="under14" class="tabcontent">
+            <h3>Ответственность родителей</h3>
+            <ul>
+                <li>Гражданская ответственность (ст. 1073 ГК РФ)</li>
+                <li>Административные штрафы (ст. 5.35 КоАП)</li>
+            </ul>
+            <div class="case-example">
+                <h4>Пример:</h4>
+                <p>12-летний ребенок разбил окно в школе → родители оплачивают ремонт.</p>
+            </div>
+        </div>
+
+        <div id="14-18" class="tabcontent">
+            <h3>Совместная ответственность</h3>
+            <ul>
+                <li>Уголовная ответственность за тяжкие преступления</li>
+                <li>Гражданская ответственность (если есть доходы)</li>
+            </ul>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>© 2024 Проект по информатике | Школа №XX, 10 класс</p>
+        </div>
+    </footer>
+
+    <script>
+        function openAge(evt, ageGroup) {
+            const tabcontent = document.getElementsByClassName("tabcontent");
+            for (let i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+            }
+
+            const tablinks = document.getElementsByClassName("tablinks");
+            for (let i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" active", "");
+            }
+
+            document.getElementById(ageGroup).style.display = "block";
+            evt.currentTarget.className += " active";
+        }
+
+        // Открываем первую вкладку по умолчанию
+        document.getElementById("under14").style.display = "block";
+        document.getElementsByClassName("tablinks")[0].className += " active";
+    </script>
+</body>
+</html>
