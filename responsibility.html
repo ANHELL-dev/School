@@ -3,20 +3,91 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ответственность</title>
+    <title>Ответственность несовершеннолетних</title>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        .tab { overflow: hidden; border: 1px solid #ccc; background: #f1f1f1; }
-        .tab button { float: left; border: none; outline: none; cursor: pointer; padding: 14px 16px; }
-        .tab button:hover { background: #ddd; }
-        .tab button.active { background: #4CAF50; color: white; }
-        .tabcontent { display: none; padding: 20px; border: 1px solid #ccc; border-top: none; }
+        .tab {
+            display: flex;
+            border-bottom: 1px solid #ddd;
+            margin-bottom: 20px;
+        }
+        .tab button {
+            background: none;
+            border: none;
+            padding: 14px 20px;
+            cursor: pointer;
+            font-size: 1rem;
+            border-bottom: 3px solid transparent;
+            transition: all 0.3s;
+        }
+        .tab button:hover {
+            background: #f5f5f5;
+        }
+        .tab button.active {
+            border-bottom-color: #4CAF50;
+            font-weight: bold;
+            color: #4CAF50;
+        }
+        .tabcontent {
+            display: none;
+            animation: fadeIn 0.5s;
+            padding: 20px 0;
+        }
+        @keyframes fadeIn {
+            from {opacity: 0;}
+            to {opacity: 1;}
+        }
+        .responsibility-card {
+            background: white;
+            border-radius: 8px;
+            padding: 25px;
+            margin-bottom: 25px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+        .law-reference {
+            background: #f0f7ff;
+            border-left: 4px solid #2196F3;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        .case-study {
+            background: #fff8e1;
+            border-left: 4px solid #FFC107;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        .penalty-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        .penalty-table th, .penalty-table td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        .penalty-table th {
+            background: #f5f5f5;
+        }
+        .penalty-table tr:nth-child(even) {
+            background: #f9f9f9;
+        }
+        .age-badge {
+            display: inline-block;
+            background: #4CAF50;
+            color: white;
+            padding: 3px 10px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            margin-left: 10px;
+        }
     </style>
 </head>
 <body>
     <header>
         <div class="container">
-            <h1>Ответственность</h1>
+            <h1><i class="fas fa-gavel"></i> Ответственность несовершеннолетних</h1>
             <nav>
                 <ul>
                     <li><a href="index.html">Главная</a></li>
@@ -30,36 +101,227 @@
     </header>
 
     <main class="container">
-        <section class="responsibility-intro">
-            <h2>Кто отвечает за нарушения?</h2>
-            <p>Зависит от возраста и тяжести проступка</p>
+        <section class="intro">
+            <h2>Виды и возраст ответственности</h2>
+            <p>В российском законодательстве установлены разные виды ответственности в зависимости от возраста ребенка.</p>
         </section>
 
         <div class="tab">
-            <button class="tablinks" onclick="openAge(event, 'under14')">До 14 лет</button>
-            <button class="tablinks" onclick="openAge(event, '14-18')">14-18 лет</button>
-            <button class="tablinks" onclick="openAge(event, 'adult')">Совершеннолетние</button>
+            <button class="tablinks active" onclick="openTab(event, 'under14')">До 14 лет</button>
+            <button class="tablinks" onclick="openTab(event, '14-16')">14-16 лет</button>
+            <button class="tablinks" onclick="openTab(event, '16-18')">16-18 лет</button>
+            <button class="tablinks" onclick="openTab(event, 'after18')">После 18 лет</button>
         </div>
 
-        <div id="under14" class="tabcontent">
-            <h3>Ответственность родителей</h3>
-            <ul>
-                <li>Гражданская ответственность (ст. 1073 ГК РФ)</li>
-                <li>Административные штрафы (ст. 5.35 КоАП)</li>
-            </ul>
-            <div class="case-example">
-                <h4>Пример:</h4>
-                <p>12-летний ребенок разбил окно в школе → родители оплачивают ремонт.</p>
+        <div id="under14" class="tabcontent" style="display: block;">
+            <div class="responsibility-card">
+                <h3><i class="fas fa-user"></i> Ответственность родителей <span class="age-badge">ст. 1073 ГК РФ</span></h3>
+                <p>За вред, причиненный детьми до 14 лет, несут ответственность родители или опекуны.</p>
+                
+                <div class="law-reference">
+                    <strong>Статья 1073 Гражданского кодекса РФ:</strong>
+                    <p>"За вред, причиненный несовершеннолетним, не достигшим четырнадцати лет (малолетним), отвечают его родители (усыновители) или опекуны..."</p>
+                </div>
+                
+                <div class="case-study">
+                    <h4><i class="fas fa-scale-balanced"></i> Пример из судебной практики:</h4>
+                    <p><strong>Дело № 2-1784/2023:</strong> 13-летний подросток разбил витрину магазина. Суд взыскал с родителей 35 000 руб. на ремонт.</p>
+                </div>
+                
+                <h4>Типичные ситуации:</h4>
+                <ul>
+                    <li>Порча чужого имущества</li>
+                    <li>Травмы, нанесенные другим детям</li>
+                    <li>Кражи в магазинах</li>
+                </ul>
+            </div>
+            
+            <div class="responsibility-card">
+                <h3><i class="fas fa-exclamation-triangle"></i> Меры воздействия на ребенка</h3>
+                <p>Хотя юридической ответственности нет, могут применяться воспитательные меры:</p>
+                
+                <table class="penalty-table">
+                    <tr>
+                        <th>Мера</th>
+                        <th>Кто применяет</th>
+                        <th>Последствия</th>
+                    </tr>
+                    <tr>
+                        <td>Постановка на учет в КДН</td>
+                        <td>Комиссия по делам несовершеннолетних</td>
+                        <td>Контроль поведения, работа с психологом</td>
+                    </tr>
+                    <tr>
+                        <td>Направление в спецшколу</td>
+                        <td>Суд по заявлению органов опеки</td>
+                        <td>Для детей с девиантным поведением</td>
+                    </tr>
+                </table>
             </div>
         </div>
 
-        <div id="14-18" class="tabcontent">
-            <h3>Совместная ответственность</h3>
-            <ul>
-                <li>Уголовная ответственность за тяжкие преступления</li>
-                <li>Гражданская ответственность (если есть доходы)</li>
-            </ul>
+        <div id="14-16" class="tabcontent">
+            <div class="responsibility-card">
+                <h3><i class="fas fa-balance-scale"></i> Гражданская ответственность <span class="age-badge">ст. 1074 ГК РФ</span></h3>
+                <p>С 14 лет подростки несут самостоятельную ответственность за причиненный вред.</p>
+                
+                <div class="law-reference">
+                    <strong>Статья 1074 ГК РФ:</strong>
+                    <p>"Несовершеннолетние в возрасте от четырнадцати до восемнадцати лет самостоятельно несут ответственность за причиненный вред..."</p>
+                </div>
+                
+                <h4>Особенности:</h4>
+                <ul>
+                    <li>Если у подростка нет доходов - возмещают родители</li>
+                    <li>Ответственность за сделки, совершенные с согласия родителей</li>
+                </ul>
+                
+                <div class="case-study">
+                    <h4><i class="fas fa-file-contract"></i> Пример:</h4>
+                    <p>15-летний подросток сломал чужой телефон. Суд обязал его возместить ущерб из стипендии. При отсутствии доходов - взыскали с родителей.</p>
+                </div>
+            </div>
+            
+            <div class="responsibility-card">
+                <h3><i class="fas fa-handcuffs"></i> Уголовная ответственность <span class="age-badge">ст. 20 УК РФ</span></h3>
+                <p>С 14 лет наступает за тяжкие преступления:</p>
+                
+                <table class="penalty-table">
+                    <tr>
+                        <th>Преступление</th>
+                        <th>Максимальное наказание</th>
+                    </tr>
+                    <tr>
+                        <td>Убийство (ст. 105 УК РФ)</td>
+                        <td>До 10 лет лишения свободы</td>
+                    </tr>
+                    <tr>
+                        <td>Кража (ст. 158 УК РФ)</td>
+                        <td>До 5 лет</td>
+                    </tr>
+                    <tr>
+                        <td>Вандализм (ст. 214 УК РФ)</td>
+                        <td>До 3 лет</td>
+                    </tr>
+                </table>
+                
+                <div class="law-reference">
+                    <p><strong>Примечание:</strong> До 16 лет применяются особые условия - смягчающие обстоятельства, воспитательные меры вместо наказания.</p>
+                </div>
+            </div>
         </div>
+
+        <div id="16-18" class="tabcontent">
+            <div class="responsibility-card">
+                <h3><i class="fas fa-file-invoice-dollar"></i> Административная ответственность <span class="age-badge">ст. 2.3 КоАП РФ</span></h3>
+                <p>С 16 лет наступает полная административная ответственность.</p>
+                
+                <div class="law-reference">
+                    <strong>Статья 2.3 Кодекса об административных правонарушениях:</strong>
+                    <p>"Административной ответственности подлежит лицо, достигшее к моменту совершения административного правонарушения возраста шестнадцати лет."</p>
+                </div>
+                
+                <h4>Распространенные нарушения:</h4>
+                <table class="penalty-table">
+                    <tr>
+                        <th>Нарушение</th>
+                        <th>Статья КоАП</th>
+                        <th>Штраф</th>
+                    </tr>
+                    <tr>
+                        <td>Мелкое хулиганство</td>
+                        <td>ст. 20.1</td>
+                        <td>1 000-2 500 руб.</td>
+                    </tr>
+                    <tr>
+                        <td>Распитие алкоголя</td>
+                        <td>ст. 20.20</td>
+                        <td>1 500-2 000 руб.</td>
+                    </tr>
+                    <tr>
+                        <td>Нарушение ПДД</td>
+                        <td>гл. 12 КоАП</td>
+                        <td>500-30 000 руб.</td>
+                    </tr>
+                </table>
+            </div>
+            
+            <div class="responsibility-card">
+                <h3><i class="fas fa-briefcase"></i> Трудовая ответственность</h3>
+                <p>С 16 лет можно официально работать по трудовому договору.</p>
+                
+                <div class="law-reference">
+                    <strong>Статья 63 Трудового кодекса РФ:</strong>
+                    <p>"Заключение трудового договора допускается с лицами, достигшими возраста шестнадцати лет."</p>
+                </div>
+                
+                <h4>Особенности:</h4>
+                <ul>
+                    <li>Сокращенный рабочий день (не более 35 часов в неделю)</li>
+                    <li>Запрет на опасные и вредные работы</li>
+                    <li>Ответственность за нарушение трудовой дисциплины</li>
+                </ul>
+            </div>
+        </div>
+
+        <div id="after18" class="tabcontent">
+            <div class="responsibility-card">
+                <h3><i class="fas fa-scale-balanced"></i> Полная дееспособность</h3>
+                <p>С 18 лет наступает полная гражданская, административная и уголовная ответственность.</p>
+                
+                <div class="law-reference">
+                    <strong>Статья 21 Гражданского кодекса РФ:</strong>
+                    <p>"Способность гражданина своими действиями приобретать и осуществлять гражданские права, создавать для себя гражданские обязанности и исполнять их (гражданская дееспособность) возникает в полном объеме с наступлением совершеннолетия..."</p>
+                </div>
+                
+                <h4>Изменения после 18 лет:</h4>
+                <ul>
+                    <li>Полная имущественная ответственность</li>
+                    <li>Возможность заключения любых договоров</li>
+                    <li>Воинская обязанность для юношей</li>
+                    <li>Право голосовать и быть избранным</li>
+                </ul>
+            </div>
+            
+            <div class="responsibility-card">
+                <h3><i class="fas fa-exclamation-circle"></i> Исключения</h3>
+                <p>В некоторых случаях полная дееспособность наступает раньше:</p>
+                
+                <table class="penalty-table">
+                    <tr>
+                        <th>Ситуация</th>
+                        <th>Возраст</th>
+                        <th>Условия</th>
+                    </tr>
+                    <tr>
+                        <td>Эмансипация</td>
+                        <td>16+</td>
+                        <td>Работа по договору или предпринимательство с согласия родителей</td>
+                    </tr>
+                    <tr>
+                        <td>Вступление в брак</td>
+                        <td>16+</td>
+                        <td>С разрешения местных органов власти</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <section class="important-notes">
+            <h2><i class="fas fa-lightbulb"></i> Важно знать!</h2>
+            <div class="notes-grid">
+                <div class="note-card">
+                    <i class="fas fa-phone-alt"></i>
+                    <h3>Телефон доверия</h3>
+                    <p>8-800-2000-122 - бесплатная консультация по правам детей</p>
+                </div>
+                <div class="note-card">
+                    <i class="fas fa-gavel"></i>
+                    <h3>Юридическая помощь</h3>
+                    <p>Бесплатные адвокаты для несовершеннолетних в каждом районе</p>
+                </div>
+            </div>
+        </section>
     </main>
 
     <footer>
@@ -69,7 +331,7 @@
     </footer>
 
     <script>
-        function openAge(evt, ageGroup) {
+        function openTab(evt, tabName) {
             const tabcontent = document.getElementsByClassName("tabcontent");
             for (let i = 0; i < tabcontent.length; i++) {
                 tabcontent[i].style.display = "none";
@@ -80,13 +342,20 @@
                 tablinks[i].className = tablinks[i].className.replace(" active", "");
             }
 
-            document.getElementById(ageGroup).style.display = "block";
+            document.getElementById(tabName).style.display = "block";
             evt.currentTarget.className += " active";
         }
 
-        // Открываем первую вкладку по умолчанию
-        document.getElementById("under14").style.display = "block";
-        document.getElementsByClassName("tablinks")[0].className += " active";
+        // Анимация при загрузке
+        document.addEventListener('DOMContentLoaded', function() {
+            const cards = document.querySelectorAll('.responsibility-card');
+            cards.forEach((card, index) => {
+                setTimeout(() => {
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0)';
+                }, 100 * index);
+            });
+        });
     </script>
 </body>
 </html>
