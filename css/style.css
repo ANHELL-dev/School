@@ -1,19 +1,19 @@
-/* Общие стили */
+/* Базовые стили */
 :root {
     --primary: #4CAF50;
     --secondary: #2196F3;
     --accent: #FF9800;
-    --dark: #333;
-    --light: #f9f9f9;
+    --dark: #333333;
+    --light: #f5f5f5;
+    --text: #212121;
 }
 
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    line-height: 1.6;
-    color: var(--dark);
-    background-color: var(--light);
+    font-family: 'Roboto', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.7;
+    color: var(--text);
+    background-color: #ffffff;
     margin: 0;
-    padding: 0;
 }
 
 .container {
@@ -23,48 +23,124 @@ body {
     padding: 20px 0;
 }
 
-/* Карточки прав */
-.rights-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 25px;
-    margin: 30px 0;
+/* Шапка */
+header {
+    background: linear-gradient(135deg, var(--primary), #2E7D32);
+    color: white;
+    padding: 1rem 0;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
 }
 
-.right-card {
+header h1 {
+    margin: 0;
+    font-size: 1.8rem;
+}
+
+header h1 i {
+    margin-right: 10px;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 15px 0 0;
+    gap: 20px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    padding: 5px 0;
+    border-bottom: 2px solid transparent;
+    transition: 0.3s;
+}
+
+nav a.active, nav a:hover {
+    border-bottom-color: white;
+}
+
+/* Основной контент */
+.rights-intro {
+    text-align: center;
+    margin: 30px 0 40px;
+}
+
+.rights-intro h2 {
+    color: var(--primary);
+    font-size: 2rem;
+}
+
+.rights-categories {
+    display: grid;
+    gap: 40px;
+}
+
+.right-category {
     background: white;
     border-radius: 8px;
-    padding: 20px;
-    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
-    transition: transform 0.3s;
+    padding: 25px;
+    box-shadow: 0 3px 15px rgba(0,0,0,0.05);
 }
 
-.right-card:hover {
-    transform: translateY(-5px);
+.right-category h3 {
+    color: var(--secondary);
+    border-bottom: 2px solid var(--light);
+    padding-bottom: 10px;
+    margin-top: 0;
 }
 
-.right-icon {
-    font-size: 2rem;
-    color: var(--primary);
-    margin-bottom: 15px;
+.right-category h3 i {
+    margin-right: 10px;
 }
 
-/* Кнопки */
-.button {
-    display: inline-block;
-    background: var(--primary);
+.right-item {
+    margin: 25px 0;
+}
+
+.right-item h4 {
+    color: var(--dark);
+    margin-bottom: 10px;
+}
+
+/* Блоки с законами и примерами */
+.law-reference, .case-study {
+    padding: 15px;
+    border-radius: 0 5px 5px 0;
+    margin: 20px 0;
+}
+
+.law-reference p, .case-study p {
+    margin: 5px 0;
+}
+
+.case-study h5 {
+    margin-top: 0;
+    color: #E65100;
+}
+
+/* Подвал */
+footer {
+    background: var(--dark);
     color: white;
-    padding: 10px 20px;
-    border-radius: 5px;
-    text-decoration: none;
-    border: none;
-    cursor: pointer;
-    margin-top: 15px;
+    padding: 20px 0;
+    margin-top: 50px;
+}
+
+footer p {
+    margin: 5px 0;
+    font-size: 0.9rem;
 }
 
 /* Адаптивность */
 @media (max-width: 768px) {
-    .rights-grid {
-        grid-template-columns: 1fr;
+    nav ul {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .right-category {
+        padding: 15px;
     }
 }
