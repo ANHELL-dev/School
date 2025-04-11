@@ -8,28 +8,56 @@
 </head>
 <body>
     <header>
-        <h1>Права и обязанности ребенка</h1>
-        <nav>
-            <ul>
-                <li><a href="index.html">Главная</a></li>
-                <li><a href="rights.html">Права</a></li>
-                <li><a href="duties.html">Обязанности</a></li>
-                <li><a href="responsibility.html">Ответственность</a></li>
-                <li><a href="resources.html">Ресурсы</a></li>
-            </ul>
-        </nav>
+        <div class="container">
+            <h1>Права и обязанности ребенка</h1>
+            <nav>
+                <ul>
+                    <li><a href="index.html" class="active">Главная</a></li>
+                    <li><a href="rights.html">Права</a></li>
+                    <li><a href="duties.html">Обязанности</a></li>
+                    <li><a href="responsibility.html">Ответственность</a></li>
+                    <li><a href="resources.html">Ресурсы</a></li>
+                </ul>
+            </nav>
+        </div>
     </header>
 
-    <main>
+    <main class="container">
+        <section class="banner">
+            <img src="images/banner.jpg" alt="Дети изучают права">
+            <div class="banner-text">
+                <p>"Ребенок имеет право на защиту, образование и счастливое детство"</p>
+                <small>Конвенция о правах ребенка, ст. 3</small>
+            </div>
+        </section>
+
         <section class="intro">
-            <h2>О проекте</h2>
-            <p>Этот сайт создан, чтобы помочь детям и подросткам разобраться в своих правах, обязанностях и понимать, кто несет ответственность за их действия.</p>
-            <img src="images/children-rights.jpg" alt="Дети и права">
+            <h2>Почему это важно знать?</h2>
+            <div class="cards">
+                <div class="card">
+                    <img src="images/icon-shield.png" alt="Защита">
+                    <h3>Защита</h3>
+                    <p>Знание прав помогает противостоять насилию и дискриминации.</p>
+                </div>
+                <div class="card">
+                    <img src="images/icon-law.png" alt="Закон">
+                    <h3>Безопасность</h3>
+                    <p>Понимание обязанностей предотвращает проблемы с законом.</p>
+                </div>
+                <div class="card">
+                    <img src="images/icon-family.png" alt="Семья">
+                    <h3>Семья</h3>
+                    <p>Родители несут ответственность за детей младше 14 лет.</p>
+                </div>
+            </div>
+            <a href="rights.html" class="button">Начать изучение →</a>
         </section>
     </main>
 
     <footer>
-        <p>© 2024 Права и обязанности ребенка. Школа №XX.</p>
+        <div class="container">
+            <p>© 2024 Проект по информатике. Школа №XX, 10 класс</p>
+        </div>
     </footer>
 </body>
 </html>
