@@ -435,17 +435,36 @@
 
         // Проверка ответа
         function checkAnswer() {
-            if (selectedOption === null && currentQuestion !== 0) return false;
+            if (selectedOption === null && userAnswers[currentQuestion] === null) {
+                alert('Пожалуйста, выберите ответ');
+                return false;
+            }
+            
+            // Если ответ уже был дан, пропускаем проверку
+            if (userAnswers[currentQuestion] !== null) {
+                return true;
+            }
+            
+            // Сохраняем ответ пользователя
+            userAnswers[currentQuestion] = selectedOption;
             
             const question = questions[currentQuestion];
             const options = document.querySelectorAll('.option');
             
-            options.forEach(option => option.classList.remove('correct', 'incorrect'));
-            options[question.answer].classList.add('correct');
+            // Помечаем правильные/неправильные ответы
+            options.forEach((option, index) => {
+                if (index === question.answer) {
+                    option.classList.add('correct');
+                    option.innerHTML = `${question.options[index]} <i class="fas fa-check status-icon"></i>`;
+                } else if (index === selectedOption && index !== question.answer) {
+                    option.classList.add('incorrect');
+                    option.innerHTML = `${question.options[index]} <i class="fas fa-times status-icon"></i>`;
+                }
+                option.classList.add('locked');
+            });
             
-            if (selectedOption !== question.answer) {
-                options[selectedOption].classList.add('incorrect');
-            } else {
+            // Подсчет баллов
+            if (selectedOption === question.answer) {
                 score++;
             }
             
@@ -453,48 +472,17 @@
             explanationEl.innerHTML = `<strong>Объяснение:</strong> ${question.explanation}`;
             explanationEl.style.display = 'block';
             
-            return selectedOption === question.answer;
+            isAnswered = true;
+            return true;
         }
 
-        // Следующий вопрос
-        nextBtn.addEventListener('click', () => {
-            if (selectedOption === null && currentQuestion !== 0) {
-                alert('Пожалуйста, выберите ответ');
-                return;
-            }
-            
-            if (currentQuestion > 0) {
-                checkAnswer();
-            }
-            
-            if (currentQuestion < questions.length - 1) {
-                currentQuestion++;
-                loadQuestion();
-                prevBtn.disabled = false;
-            } else {
-                showResult();
-            }
-        });
-
-        // Предыдущий вопрос
-        prevBtn.addEventListener('click', () => {
-            if (currentQuestion > 0) {
-                currentQuestion--;
-                loadQuestion();
-                if (currentQuestion === 0) {
-                    prevBtn.disabled = true;
-                }
-            }
-        });
-
         // Показ результатов
-        function showResult() {
+        function showResults() {
             quizContent.style.display = 'none';
             resultContainer.style.display = 'block';
-            progressBar.style.width = '100%';
             finalScore.textContent = `${score}/${questions.length}`;
             
-            let percentage = Math.round((score / questions.length) * 100);
+            const percentage = Math.round((score / questions.length) * 100);
             if (percentage < 50) {
                 resultText.textContent = "Нужно подтянуть знания! Изучите материалы еще раз.";
             } else if (percentage < 80) {
@@ -504,14 +492,32 @@
             }
         }
 
-        // Перезапуск теста
+        // Обработчики событий
+        nextBtn.addEventListener('click', () => {
+            if (!checkAnswer()) return;
+            
+            if (currentQuestion < questions.length - 1) {
+                currentQuestion++;
+                loadQuestion();
+            } else {
+                showResults();
+            }
+        });
+
+        prevBtn.addEventListener('click', () => {
+            if (currentQuestion > 0) {
+                currentQuestion--;
+                loadQuestion();
+            }
+        });
+
         restartBtn.addEventListener('click', () => {
             currentQuestion = 0;
             score = 0;
+            userAnswers = Array(questions.length).fill(null);
             quizContent.style.display = 'block';
             resultContainer.style.display = 'none';
             loadQuestion();
-            prevBtn.disabled = true;
         });
 
         // Начальная загрузка
