@@ -119,7 +119,7 @@
                     <li><a href="duties.html">Обязанности</a></li>
                     <li><a href="responsibility.html">Ответственность</a></li>
                     <li><a href="resources.html">Ресурсы</a></li>
-                    <li><a href="quiz.html" class="active">Тест</a></li>
+                    <li><a href="quiz.html" class="active">Проверь свои знания в тестировании</a></li>
                 </ul>
             </nav>
         </div>
@@ -363,6 +363,8 @@
         let currentQuestion = 0;
         let score = 0;
         let selectedOption = null;
+        let userAnswers = Array(questions.length).fill(null);
+        let isAnswered = false;
 
         // Загрузка вопроса
         function loadQuestion() {
@@ -380,21 +382,53 @@
             question.options.forEach((option, index) => {
                 const optionEl = document.createElement('div');
                 optionEl.classList.add('option');
-                optionEl.textContent = option;
-                optionEl.addEventListener('click', () => selectOption(index));
+                
+                // Если ответ уже был дан, помечаем соответствующим образом
+                if (userAnswers[currentQuestion] !== null) {
+                    if (index === question.answer) {
+                        optionEl.classList.add('correct');
+                        optionEl.innerHTML = `${option} <i class="fas fa-check status-icon"></i>`;
+                    } else if (index === userAnswers[currentQuestion] && index !== question.answer) {
+                        optionEl.classList.add('incorrect');
+                        optionEl.innerHTML = `${option} <i class="fas fa-times status-icon"></i>`;
+                    } else {
+                        optionEl.textContent = option;
+                    }
+                    optionEl.classList.add('locked');
+                } else {
+                    optionEl.textContent = option;
+                    optionEl.addEventListener('click', () => selectOption(index));
+                }
+                
                 optionsContainer.appendChild(optionEl);
             });
             
-            // Сброс выбора
+            // Сброс состояния
             selectedOption = null;
-            explanationEl.style.display = 'none';
+            isAnswered = userAnswers[currentQuestion] !== null;
+            
+            // Показ пояснения если ответ был дан
+            if (userAnswers[currentQuestion] !== null) {
+                explanationEl.innerHTML = `<strong>Объяснение:</strong> ${question.explanation}`;
+                explanationEl.style.display = 'block';
+            } else {
+                explanationEl.style.display = 'none';
+            }
+            
+            // Обновление кнопок навигации
+            prevBtn.disabled = currentQuestion === 0;
             nextBtn.textContent = currentQuestion === questions.length - 1 ? 'Завершить' : 'Далее';
         }
 
         // Выбор варианта
         function selectOption(index) {
+            if (isAnswered) return;
+            
+            // Снятие выделения со всех вариантов
             const options = document.querySelectorAll('.option');
-            options.forEach(option => option.classList.remove('selected'));
+            options.forEach(opt => opt.classList.remove('selected'));
+            
+            // Выделение выбранного варианта
             options[index].classList.add('selected');
             selectedOption = index;
         }
